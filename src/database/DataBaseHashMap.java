@@ -1,21 +1,23 @@
 package database;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 import checkout.Order;
 import product.Product;
 import user.User;
+import java.util.Collections;
 
 public class DataBaseHashMap implements DataBase{
 	
-	private Hashtable<Integer,Product> products;
-	private Hashtable<String,User> users;
-	private Hashtable<Integer,Product> Orders;
-	private static DataBaseHashMap instance ;
+	private HashMap<Integer,Product> products;
+	private HashMap<String,User> users;
+	private HashMap<String, Product> Orders;
+	public static DataBaseHashMap instance ;
 	
-	public DataBaseHashMap() {
-		
+	private DataBaseHashMap() {
+		this.products = new HashMap<Integer,Product>();
+		this.users = new HashMap<String,User>();
+		this.Orders = new HashMap<String,Product>();
 	}
 	public static synchronized DataBaseHashMap getInstance() {
 		if (instance == null) {
@@ -26,27 +28,46 @@ public class DataBaseHashMap implements DataBase{
 	
 	
 	public boolean addUser(User user) {
-		return (users.put(user.getEmail(), user) != null) ; 
-		
-		
+		return (users.put(user.getEmail(), user) != null) ; 	
 	}
+	
 	public User getUserByEmail(String email) {
 		return users.get(email) ; 
 	}
+	
 	public void removeUser(String email) {
 		users.remove(email);
 	}
+	
 	 public boolean addOrder(Order order) {
 		
+		 return (Orders.put(order.getUserMailidentifier(), ) != null) ;
 	}
-	 public boolean removeOrder() {
-		 
+	 
+	 public void removeOrder(String email) {
+		 Orders.remove(email);	
 	 }
-	public List<Product> getProductList() {
-		
+	 
+	public ArrayList<String> getProductList() {
+		ArrayList<String> productList = new ArrayList<String>();
+		for (Product value : Orders.values()){
+			productList.add(value.getName());
+		}
+		return productList;
 	}
+	
 	public  Product getProduct(int productId) {
 		
+	}
+	@Override
+	public void removeUser(int userId) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public ArrayList<Product> getProductList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

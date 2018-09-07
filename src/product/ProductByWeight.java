@@ -2,13 +2,13 @@ package product;
 
 public class ProductByWeight extends Product{
 	
-	private double kg ;
-	
-
-	public void ProductByWeight(int barcode, String name,  String category , double price) {
-		
+	public ProductByWeight(int barcodeId, String name, String Company, String ExpirationDate,String category, double price) {
+		super(barcodeId, name, Company, ExpirationDate,category, price);
 	}
-	public double getCost() {
-		
+	
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

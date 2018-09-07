@@ -1,20 +1,15 @@
 package product;
 
 public class ProductByUnit extends Product {
-
-	private int units;
-
-	public void	ProductPerUnit(int barcode, String name,  String category , double price) {
-
+	
+	public ProductByUnit(int barcodeId, String name, String Company, String ExpirationDate,String category, double price) {
+		super(barcodeId, name, Company, ExpirationDate,category, price);
 	}
-	public void	addUnits() {
-
-	}
-	public void	subUnits() {
-
-	}
-	public double	subUnits() {
-
+	
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
