@@ -1,10 +1,10 @@
 package server;
 import java.util.Hashtable;
 
+import Config.CardType;
+import Config.Constants;
+import Config.UserType;
 import checkout.Sales;
-import config.CardType;
-import config.Constants;
-import config.UserType;
 import database.AdminDBActions;
 import database.DataBaseHashMap;
 import user.CreditCard;
@@ -23,11 +23,19 @@ public class Server {
 
 
 	//	Methods
+	
+	public boolean isAlive() {
+		return isAlive;
+	}
+	
 	private Server () {
 		isAlive = true ; 
 		users = new Hashtable<String, UserManager> () ;
 		sales  = Sales.getInstance() ; 
 		actions = DataBaseHashMap.getInstance(); 
+	}
+	public Hashtable<String, UserManager> getUsers() {
+		return users;
 	}
 	public static synchronized Server getInstance() {
 		if (instance == null) {

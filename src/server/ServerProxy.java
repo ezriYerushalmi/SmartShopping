@@ -1,9 +1,9 @@
 package server;
 import java.util.Date;
 
-import config.CardType;
-import config.Constants;
-import config.UserType;
+import Config.CardType;
+import Config.Constants;
+import Config.UserType;
 import logger.Logger;
 import logger.LoggerConsole;
 

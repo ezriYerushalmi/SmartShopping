@@ -5,11 +5,7 @@ public class GoldenUser  extends User {
 
 
 	public GoldenUser(int id, String userName, String email, String phoneNumber, CreditCard creditCard){
-		super.id = id;
-		super.userName = userName;
-		super.email = email;
-		super.phoneNumber = phoneNumber;
-		super.creditCard = creditCard;
+		super( id, userName, email, phoneNumber, creditCard);
 	} 
 
 	@Override

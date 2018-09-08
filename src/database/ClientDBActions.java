@@ -6,8 +6,8 @@ import product.Product;
 public interface ClientDBActions {
 
 
-public ArrayList<Product> getProductList();
-public Product getProduct(int productcode);
+public ArrayList<String> getProductList();
+public Product getProduct(int productId);
 	
 	
 }

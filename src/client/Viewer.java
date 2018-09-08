@@ -5,8 +5,14 @@ import javax.swing.plaf.InputMapUIResource;
 
 import BarcodeReader.BarcodeReader;
 import BarcodeReader.Reader;
+<<<<<<< HEAD
 import config.CardType;
 import config.UserType;
+=======
+import Config.CardType;
+import Config.UserType;
+import server.ServerProxy;
+>>>>>>> e843a52be660e6bf5e0438e208da5be4cd351d3e
 
 public class Viewer {
 
