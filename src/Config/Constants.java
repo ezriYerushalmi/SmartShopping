@@ -1,4 +1,4 @@
-package config;
+package Config;
 
 public  class Constants {
 	public static final String SERVER_URL = "http://localhost";

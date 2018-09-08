@@ -3,8 +3,8 @@ import java.util.HashMap;
 
 import BarcodeReader.BarcodeReader;
 import BarcodeReader.Reader;
-import config.CardType;
-import config.UserType;
+import Config.CardType;
+import Config.UserType;
 import server.ServerProxy;
 
 public class Viewer {

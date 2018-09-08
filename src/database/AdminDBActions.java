@@ -6,5 +6,5 @@ public interface AdminDBActions {
 	
 	public  boolean addUser(User user);
 	public  User getUserByEmail(String email);
-	public  void removeUser(int userid); 
+	public  void removeUser(String email); 
 }

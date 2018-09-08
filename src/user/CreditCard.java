@@ -1,13 +1,14 @@
 package user;
-import config.Constants;
+import Config.CardType;
+
 
 public class CreditCard {
 
 	private String cardOwner;
 	private int cardNumber;
-	private Constants.CardType cardType;
+	private Config.CardType cardType;
 	
-	public CreditCard(String cardOwner , int cardNumber, Constants.CardType cardType) {
+	public CreditCard(String cardOwner , int cardNumber, CardType cardType) {
 		this.cardOwner = cardOwner ; 
 		this.cardNumber = cardNumber ; 
 		this.cardType = cardType ; 
@@ -21,7 +22,7 @@ public class CreditCard {
 		return cardNumber;
 	}
 
-	public Constants.CardType getCardType() {
+	public Config.CardType getCardType() {
 		return cardType;
 	}
 	

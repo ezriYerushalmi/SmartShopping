@@ -1,6 +1,6 @@
 package user;
-import config.Constants;
-import config.Constants.UserType;
+import Config.Constants;
+import Config.Constants.UserType;
 
 public class UserFactory {
 
