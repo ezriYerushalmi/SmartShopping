@@ -1,17 +1,20 @@
 
 package product;
-import Util.Constants.ProductType;
 
 public class ProductFactory {
 
 	
-	public static Product buildProduct(ProductType type,int barcodeId, String name, String Company, String ExpirationDate,String category, double price) {
+	public static ProductWrapper buildProduct(Product product) {
 	
-		if(type.equals(ProductType.Unit)) return new ProductByUnit(barcodeId, name, Company, ExpirationDate,category, price);
-
-		else if(type.equals(ProductType.Weight)) return new ProductByWeight(barcodeId, name, Company, ExpirationDate,category, price);
-
-		else return null;
 		
+		switch(product.getType()) {
+		
+		case UNITS: 
+			return new ProductByUnit(product);
+		case WEIGHT:
+			return new ProductByWeight(product);
+			
+		}
+		return null;
 	}	
 }

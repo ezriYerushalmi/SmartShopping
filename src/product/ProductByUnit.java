@@ -1,10 +1,20 @@
 package product;
 
-public class ProductByUnit extends Product {
+public class ProductByUnit extends ProductWrapper {
 	
-	public ProductByUnit(int barcodeId, String name, String Company, String ExpirationDate,String category, double price) {
-		super(barcodeId, name, Company, ExpirationDate,category, price);
+	private int numberOfUnits = 1;
+	
+	public ProductByUnit(Product product) {
+		super(product);
 	}
+	
+	public void addUnits() {
+		numberOfUnits++;
+	}
+	public int getNumberOfUnits() {
+		return numberOfUnits;
+	}
+	
 	
 	@Override
 	public double getPrice() {

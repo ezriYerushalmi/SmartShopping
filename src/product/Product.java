@@ -1,5 +1,7 @@
 package product;
 
+import config.ProductType;
+
 public abstract class Product {
 
 	private int barcodeId;
@@ -8,16 +10,20 @@ public abstract class Product {
 	private String ExpirationDate;
 	private double price;
 	private String category;
-
-	protected Product(int barcodeId,String name, String Company, String ExpirationDate,String category, double price){
+	private ProductType type;
+	
+	protected Product(int barcodeId,String name, String Company, String ExpirationDate,String category, double price, ProductType type){
 		this.barcodeId = barcodeId;
 		this.name = name;
 		this.Company = Company;
 		this.ExpirationDate = ExpirationDate;
 		this.category = category;
 		this.price = price;
+		this.type = type;
 	}
-	
+	public ProductType getType() {
+		return type;
+	}
 	public String getCategory() {
 		return category;
 	}
@@ -40,6 +46,9 @@ public abstract class Product {
 
 	public abstract double getPrice();///??????
 	
+	public String toString() {
+		return name +" - " +price;
+	}
 	
 	
 }

@@ -61,8 +61,16 @@ public class Server {
 	}
 	
 	
-	public boolean removeProduct(int userId, int productarCode)	{}
-	public String  makePurchase(int userId){}
+	public void removeProduct(String userMail, int barcode) {
+		UserManager userManager = users.get(userMail);
+		userManager.removeItem(barcode);
+		
+	}
+	public void checkOut(String email) {
+		UserManager userManager = users.get(email);
+		userManager.checkOut();
+	}
+	
 	public String  removeCart(int userId){}
 	public String notifySuccessfulPurchase(int userId){}
 	public User createNewUser(UserType type,int id,String email ,String name,String phoneNumber, int cardNumber , CardType cardType){

@@ -1,23 +1,37 @@
 package user;
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import BarcodeReader.BarcodeReader;
+import checkout.Visited;
+import checkout.Visitor;
 import database.ClientDBActions;
-import product.Product;
+import product.ProductWrapper;
 
-public class ShoppingCart {
+public class ShoppingCart implements Visited{
 
-	private ArrayList<Product> productsList;
-	private BarcodeReader barcodeReader;
+	private HashMap<Integer, ProductWrapper> productsList;
 	public int cardId;
 	public ClientDBActions actions;
 	public User user;
 	
 	public ShoppingCart(){}
-	public void addProduct(Product product) {
-		productsList.add(product);
+	public void addProduct(ProductWrapper product) {
+		productsList.put(product.getBarcodeId(), product);
 	}
-	public void deleteProduct(){}
-	public void editProduct(){}
-	public void cleanCart(){}
+	public void deleteProduct(int barcode) {
+		productsList.remove(barcode);
+	}
+	public void editProduct(ProductWrapper product) {
+		productsList.remove(product.getBarcodeId());
+		productsList.put(product.getBarcodeId(), product);
+	}
+	public void clearCart() {
+		productsList.clear();
+	}
+	public void getReceipt() {
+		
+	}
+	@Override
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
 }

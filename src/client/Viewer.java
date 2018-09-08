@@ -1,23 +1,25 @@
 package client;
-import java.util.HashMap;
+import java.util.Scanner;
+
+import javax.swing.plaf.InputMapUIResource;
 
 import BarcodeReader.BarcodeReader;
 import BarcodeReader.Reader;
 import config.CardType;
 import config.UserType;
-import server.ServerProxy;
 
 public class Viewer {
 
 	private ShoppingCartViewer shoppingCart;
 	private BarcodeReader barcodeReader; 
-	private ServerProxy server;
+	
 	private String email;
 	private int password;
+	private Services services;
 	
 	public Viewer(ShoppingCartViewer shoppingCart) { 
-		ServerProxy server = ServerProxy.getInstance(); 
 		this.shoppingCart = shoppingCart;
+		services = Services.getInstance();
 	}
 
 	public void register(UserType type,int id,String email ,String name,String phoneNumber, int cardNumber , CardType cardType  ) {
@@ -35,19 +37,27 @@ public class Viewer {
 
 	}
 
-	private void PostRegisterUser(UserType type,int id,String email ,String name,String phoneNumber, int cardNumber , CardType cardType){
-		server.postRegisterdDetails(type,id, email , name, phoneNumber, cardNumber ,cardType) ; 
-	}
-
-	private boolean getLoginDetails(String email, int password){
-		return server.getLogginDetails(email, password);
-	}
+	
 	
 	public void addItem() {
 		
 		int barCode = barcodeReader.readBarcode();
-		String productStr = server.addProduct(email, barCode);
+		String productStr = services.addProduct(barCode, email);
 		
+		
+	}
+	public void removeItem(int barcode) {
+		services.removeItem(barcode, email);
+	}
+	public void checkOut() {
+		System.out.println("Are you sure you want to checkout ?");
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		if (input.equalsIgnoreCase("Yes")) {
+			
+		} else if (input.equalsIgnoreCase("no")) {
+			
+		}
 		
 	}
 	public void setReader(Reader reader) {

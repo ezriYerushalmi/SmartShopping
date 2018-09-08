@@ -1,11 +1,17 @@
 package product;
 
-public class ProductByWeight extends Product{
+public class ProductByWeight extends ProductWrapper {
 	
-	public ProductByWeight(int barcodeId, String name, String Company, String ExpirationDate,String category, double price) {
-		super(barcodeId, name, Company, ExpirationDate,category, price);
+
+	double weight;
+	
+	public ProductByWeight(Product product) {
+		super(product);
 	}
 	
+	public void addWeight(int weight) {
+		this.weight += weight;
+	}
 	@Override
 	public double getPrice() {
 		// TODO Auto-generated method stub

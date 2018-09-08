@@ -25,6 +25,6 @@ public abstract class User implements Visited {
 	public String getEmail() {
 		return email;
 	}
-	public abstract int  accept(Visitor v);
+	public abstract void accept(Visitor v);
 	 
 }

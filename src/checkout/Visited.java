@@ -2,5 +2,5 @@ package checkout;
 
 public interface Visited {
 
-	public int accept(Visitor v);
+	public void accept(Visitor v);
 }

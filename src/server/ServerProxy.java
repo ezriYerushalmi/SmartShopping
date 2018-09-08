@@ -35,7 +35,9 @@ public class ServerProxy {
 		}
 		return false ; 
 	}
-	
+	public void checkOut(String email) {
+		server.checkOut(email);
+	}
 	private boolean isServerAvailable() {
 		return (counterUser  <= Constants.MAX_USERS_ON_SERVER) ; 
 	}
@@ -60,8 +62,8 @@ public class ServerProxy {
 		
 	}
 	
-	public boolean removeProduct(int userId , int productBarCode) {
-
+	public boolean removeProduct(String email , int productBarCode) {
+		server.removeProduct(email, productBarCode)
 	}
 	
 	public String makePurchase(int userId) {

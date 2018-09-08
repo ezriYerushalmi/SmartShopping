@@ -1,11 +1,11 @@
 package product;
 
-public class ProductDecorator extends Product {
+public class ProductDecorator extends ProductWrapper {
 
-	private Product product;
+	private ProductWrapper product;
 	private int discountAmount;
 
-	public ProductDecorator(Product product, int discountAmount) {
+	public ProductDecorator(ProductWrapper product, int discountAmount) {
 		this.product = product;
 		this.discountAmount = discountAmount;
 	}

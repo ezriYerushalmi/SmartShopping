@@ -11,6 +11,7 @@ public class RegularUser extends User {
 		super.phoneNumber = phoneNumber;
 		super.creditCard = creditCard;
 	} 
-	public void accept(Visitor v){}
-	
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
 }
